@@ -38,7 +38,20 @@ public class Main
 			}
 		}
 
-		System.out.println(wordCounts);
+		//HashMap with all values created, now need to sort
+		//Creating ArrayList to put HashMap entries into
+		ArrayList<HashMap.Entry<String, Integer>> countArray = new ArrayList<HashMap.Entry<String, Integer>>();
+		countArray.addAll(wordCounts.entrySet());
+
+		Collections.sort(countArray, new Comparator<Map.Entry<String, Integer>>()
+		{
+			public int compare(HashMap.Entry<String, Integer> o1, HashMap.Entry<String, Integer> o2)
+			{
+				return o2.getValue() - o1.getValue();
+			}
+		});
+
+		System.out.println(countArray);
 
 	}
 
