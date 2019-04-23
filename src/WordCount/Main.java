@@ -26,8 +26,10 @@ public class Main
 			//Check if the word exists in the hashmap:
 			if(wordCounts.containsKey(words[i]))
 			{
+				//System.out.println("Should be increasing the count now!");
 				//If it's there, add one to count
-				continue;
+				Integer newValue = wordCounts.get(words[i]) + 1;
+				wordCounts.replace(words[i], newValue);
 			}
 			else
 			{
