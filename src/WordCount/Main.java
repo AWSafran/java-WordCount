@@ -51,7 +51,10 @@ public class Main
 			}
 		});
 
-		System.out.println(countArray);
+		for (int i = 0; i < 50; i++)
+		{
+			System.out.println((i+1) + ". Word: " + countArray.get(i).getKey() + ", Count: " + countArray.get(i).getValue());
+		}
 
 	}
 
