@@ -51,10 +51,33 @@ public class Main
 			}
 		});
 
+		System.out.println("Sorting Top 50 words Used");
+
+		ArrayList<HashMap.Entry<String, Integer>> topFifty = new ArrayList<HashMap.Entry<String, Integer>>();
+
 		for (int i = 0; i < 50; i++)
 		{
 			System.out.println((i+1) + ". Word: " + countArray.get(i).getKey() + ", Count: " + countArray.get(i).getValue());
+			topFifty.add(countArray.get(i));
 		}
+
+
+		//Now sort alphabetially
+
+		Collections.sort(topFifty, new Comparator<Map.Entry<String, Integer>>()
+		{
+			public int compare(HashMap.Entry<String, Integer> o1, HashMap.Entry<String, Integer> o2)
+			{
+				return o1.getKey().compareTo(o2.getKey());
+			}
+		});
+
+		System.out.println("\nSorting Top 50 words alphabetically");
+		
+		for(int i = 0; i < topFifty.size(); i++)
+		{
+			System.out.println((i+1) + ". Word: " + topFifty.get(i).getKey() + ", Count: " + topFifty.get(i).getValue());
+		} 
 
 	}
 
